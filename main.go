@@ -5,9 +5,5 @@ import (
 )
 
 func main() {
-	steps.StepOne()
-	steps.StepTwo()
-	steps.StepThree()
-	steps.StepFour()
-	steps.StepFive()
+	steps.Pointers()
 }

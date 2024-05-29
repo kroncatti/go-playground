@@ -2,23 +2,16 @@ package steps
 
 import (
 	"fmt"
-	"runtime"
-)
 
-func traceFunction() {
-	pc := make([]uintptr, 15)
-	n := runtime.Callers(2, pc)
-	frames := runtime.CallersFrames(pc[:n])
-	frame, _ := frames.Next()
-	fmt.Println(frame.Function)
-}
+	"github.com/kroncatti/go-playground/utils"
+)
 
 // 1. Defining a variable and a pointer to it.
 var x = 10
 var ptr = &x
 
-func StepOne() {
-	traceFunction()
+func stepOne() {
+	utils.TraceFunction()
 	fmt.Println(x)
 	fmt.Println(ptr)
 	fmt.Println(*ptr)
@@ -28,8 +21,8 @@ func StepOne() {
 
 var ptrTwo = new(int)
 
-func StepTwo() {
-	traceFunction()
+func stepTwo() {
+	utils.TraceFunction()
 	fmt.Println(ptrTwo)
 	fmt.Println(*ptrTwo)
 	*ptrTwo = 10
@@ -42,8 +35,8 @@ func addOne(x *int) {
 	*x++
 }
 
-func StepThree() {
-	traceFunction()
+func stepThree() {
+	utils.TraceFunction()
 	x := 10
 	fmt.Println(x)
 	addOne(&x)
@@ -57,8 +50,8 @@ func printArray(arr *[4]int) {
 	fmt.Println(*arr)
 }
 
-func StepFour() {
-	traceFunction()
+func stepFour() {
+	utils.TraceFunction()
 	arr := [4]int{1, 2, 3, 4}
 	ptr := &arr
 	fmt.Println(*ptr)
@@ -78,8 +71,8 @@ func double(x *int) *int {
 	return &result
 }
 
-func StepFive() {
-	traceFunction()
+func stepFive() {
+	utils.TraceFunction()
 	x := 1
 	y := 2
 	fmt.Println(x, y)
@@ -87,4 +80,12 @@ func StepFive() {
 	fmt.Println(x, y)
 	ptr := double(&x)
 	fmt.Println(*ptr)
+}
+
+func Pointers() {
+	stepOne()
+	stepTwo()
+	stepThree()
+	stepFour()
+	stepFive()
 }
