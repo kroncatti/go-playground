@@ -1,10 +1,9 @@
 package main
 
 import (
-	"github.com/kroncatti/go-playground/steps"
+	"fmt"
 )
 
 func main() {
-	steps.Pointers()
-	steps.Syntax()
+	fmt.Println("Hello World!")
 }
