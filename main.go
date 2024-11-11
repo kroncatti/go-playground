@@ -6,4 +6,5 @@ import (
 
 func main() {
 	steps.Pointers()
+	steps.Syntax()
 }
